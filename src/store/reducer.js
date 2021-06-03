@@ -13,7 +13,6 @@ const initState = {
 const reducer = (state = initState, action) => {
   switch (action.type) {
     case CHANGE_PERSON:
-    
       const {name,value}=action.payload
       return { ...state, person: { ...state.person, [name]: value } };
     case ADD_PERSON:
