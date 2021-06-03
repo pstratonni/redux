@@ -13,13 +13,12 @@ const initState = {
 const reducer = (state = initState, action) => {
   switch (action.type) {
     case CHANGE_PERSON:
-      const {name,value}=action.payload
+      const { name, value } = action.payload;
       return { ...state, person: { ...state.person, [name]: value } };
     case ADD_PERSON:
-      const _arr = [...state.persons, { ...state.person, id: Date.now() }];
       return {
         ...state,
-        persons: _arr,
+        persons: [...state.persons, { ...state.person, id: Date.now() }],
         person: { id: "", fName: "", lName: "", phone: "" },
       };
     default:
